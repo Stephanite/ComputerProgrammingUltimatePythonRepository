@@ -72,5 +72,11 @@ print("[9,8,10] ->", increasing([9,8,10]))
 
 ####
 
-def all_true():
-    
+def all_true(list):
+    first,middle,last=list
+    if first=="true" and middle=="true" and last=="true":
+        return True
+    else:
+        return False
+print("all_true")
+print("[true,true,true] ->", all_true(["true","true","true"]))
