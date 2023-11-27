@@ -1,4 +1,4 @@
-1. `make_abc`
+ 1. `make_abc`
 
     Implement a function called `make_abc` that takes no input arguments. The function should return a list containing the strings "a", "b", and "c" in that order.
 
