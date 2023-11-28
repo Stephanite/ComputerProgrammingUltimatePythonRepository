@@ -36,8 +36,8 @@ print("[1,3,5,6],[9,5,4,4] ->", common_edge([1,3,5,6],[9,5,4,4]))
 
 ####
 
-def all_the_same(list):
-    first,middle,last=list
+def all_the_same(items):
+    first,middle,last=items
     if first==middle==last:
         return True
     else:
@@ -48,8 +48,8 @@ print("[4,4,4] ->", all_the_same([4,4,4]))
 
 ####
 
-def all_unique(list):
-    first,middle,last=list
+def all_unique(items):
+    first,middle,last=items
     if first==middle or middle==last or first==last:
         return False
     else:
@@ -60,8 +60,8 @@ print("[4,6,7] ->", all_the_same([4,6,7]))
 
 ####
 
-def increasing(list):
-    first,middle,last=list
+def increasing(items):
+    first,middle,last=items
     if first<middle and middle<last:
         return True
     else:
@@ -72,11 +72,28 @@ print("[9,8,10] ->", increasing([9,8,10]))
 
 ####
 
-def all_true(list):
-    first,middle,last=list
-    if first=="true" and middle=="true" and last=="true":
+def all_true(items):
+    first,middle,last=items
+    if first==True and middle==True and last==True:
         return True
     else:
         return False
 print("all_true")
-print("[true,true,true] ->", all_true(["true","true","true"]))
+print("[True,True,True] ->", all_true([True,True,True]))
+print("[false,True,false] ->", all_true(["false",True,"false"]))
+
+####
+
+def mostly_true(items):
+    first,middle,last=items
+    if first==True and middle==True:
+        return True
+    elif middle==True and last==True:
+        return True
+    elif last==True and first==True:
+        return True
+    else:
+        return False
+print("mostly_true")
+print("[true,true,false] ->", mostly_true([True,True,False]))
+print("[false,true,false] ->", mostly_true([False,True,False]))
