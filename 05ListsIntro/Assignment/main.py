@@ -97,3 +97,41 @@ def mostly_true(items):
 print("mostly_true")
 print("[true,true,false] ->", mostly_true([True,True,False]))
 print("[false,true,false] ->", mostly_true([False,True,False]))
+
+####
+
+def make_copy(item):
+    first,middle,last=item
+    return item
+print("make_copy")
+print("[3,6,7] ->",make_copy([3,6,7]))
+
+###
+
+def repeat_thrice(item):
+    return [item,item,item]
+print("repeat_thrice")
+print("3 ->", repeat_thrice(3))
+
+####
+
+def make_reversed_copy(original):
+    first1,middle1,last1=original
+    first2=last1
+    middle2=middle1
+    last2=first1
+    new=[first2,middle2,last2]
+    return new
+print("make_reversed_copy")
+original = [2, 4, 7]
+print("[original] ->",make_reversed_copy(original))
+
+####
+
+def reverse_in_place(original):
+    first,middle,last=original
+    new=[last,middle,first]
+    return new
+print("reverse_in_place")
+original=input("enter a 3 integer list: ")
+print("[original] ->",reverse_in_place([original]))
