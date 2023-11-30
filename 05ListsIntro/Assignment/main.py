@@ -123,8 +123,7 @@ def make_reversed_copy(original):
     new=[first2,middle2,last2]
     return new
 print("make_reversed_copy")
-original = [2, 4, 7]
-print("[original] ->",make_reversed_copy(original))
+print("[2,3,7] ->",make_reversed_copy([2,3,7]))
 
 ####
 
@@ -133,5 +132,4 @@ def reverse_in_place(original):
     new=[last,middle,first]
     return new
 print("reverse_in_place")
-original=input("enter a 3 integer list: ")
-print("[original] ->",reverse_in_place([original]))
+print("[5,4,3] ->",reverse_in_place([5,4,3]))
