@@ -37,10 +37,14 @@ def average_act_score(scores):
         if 1<=score<=36:
             total=total+score
             validScores=validScores+1
-    return total/validScores
+    if validScores==0:
+        return None
+    else:
+        return total/validScores
+
 print("average_act_score")
 print("5,36,22,29,25,33,0,50,100 ->",average_act_score([5,36,22,29,25,33,0,50,100]))
-
+print("40 ->", average_act_score([40]))
 ####
 
 def all_true(items):
