@@ -108,3 +108,73 @@ def has_vowel(characters):
 print("has_vowel")
 print("[a,g,h,e,v,n] ->",has_vowel(["a","g","h","e","v","n"]))
 print("[b,c,d,f,g] ->",has_vowel(["b","c","d","f","g"]))
+
+####
+
+def all_the_same(integers):
+    lastItem=integers[0]
+    for integer in integers:
+        if integer==lastItem:
+            lastItem=integer
+        else:
+            return False
+    return True
+print("all_the_same")
+print("[1,2,1] ->", all_the_same([1,2,1]))
+print("[4,4,4] ->", all_the_same([4,4,4]))  
+
+####
+
+def increasing(integers):
+    lastItem=integers[0]
+    for integer in integers:
+        if integer>=lastItem:
+            lastItem=integer
+        else:
+            return False
+    return True
+print("increasing")
+print("[1,2,5] ->", increasing([1,2,5]))
+print("[4,2,3] ->", increasing([4,2,3]))
+
+####
+
+def its_incrementing(integers):
+    lastItem=0
+    for integer in integers:
+        if integer==lastItem+1:
+            lastItem=integer
+            return True
+        else:
+            return False
+print("its_incrementing")
+print("[1,2,3] ->",its_incrementing([1,2,3]))
+print("[6,8,0] ->",its_incrementing([6,8,0]))
+
+####
+
+def has_adjacent_repeat(integers):
+    repeat=integers[0]
+    for integer in integers:
+        if integer==repeat:
+            repeat=integer
+        else:
+            return False
+    return True
+print("has_adjacent_repeat")
+print("[2,3,4,4,5] ->", has_adjacent_repeat([2,3,4,4,5]))
+print("[3,4,5,7] ->", has_adjacent_repeat([3,4,5,7]))
+
+####
+
+def sum_with_skips(integers):
+    total=0
+    for integer in integers:
+        if integer==-1:
+            total
+        else:
+            total= integer+total
+    return total
+print("sum_with_skips")
+print("[3,4,4,6,-1] ->",sum_with_skips([3,4,4,6,-1]))
+print("[1,1,1] ->", sum_with_skips([1,1,1]))
