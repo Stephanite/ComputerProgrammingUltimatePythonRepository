@@ -154,13 +154,16 @@ print("[6,8,0] ->",its_incrementing([6,8,0]))
 ####
 
 def has_adjacent_repeat(integers):
-    repeat=integers[0]
+    repeat=integers[0]-1
     for integer in integers:
         if integer==repeat:
-            repeat=integer
+            return True
         else:
-            return False
-    return True
+            repeat=integer
+    return False
+            
+
+    #return True
 print("has_adjacent_repeat")
 print("[2,3,4,4,5] ->", has_adjacent_repeat([2,3,4,4,5]))
 print("[3,4,5,7] ->", has_adjacent_repeat([3,4,5,7]))
@@ -171,9 +174,9 @@ def sum_with_skips(integers):
     total=0
     for integer in integers:
         if integer==-1:
-            total
+            return 
         else:
-            total= integer+total
+            total=total+integer
     return total
 print("sum_with_skips")
 print("[3,4,4,6,-1] ->",sum_with_skips([3,4,4,6,-1]))
