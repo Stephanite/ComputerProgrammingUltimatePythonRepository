@@ -68,8 +68,72 @@ print("gjfjnvfdn ->", in_alphabetical_order("gjfjnvfdn"))
 
 def alternate_case(word):
     result=""
+    next_upper= True
     for letter in word:
-        if letter==
-    return 
+        if next_upper==True:
+            result=result+letter.upper()
+            next_upper=False
+        elif next_upper==False:
+            result=result+letter.lower()
+            next_upper=True
+    return result
 print("alternate_case")
 print("computer ->", alternate_case("computer"))
+print("pizza ->", alternate_case("pizza"))
+
+####
+
+def remove_vowels(string):
+    result=""
+    for letter in string:
+        if letter in "aeiou":
+            pass
+        else:
+            result=result+letter
+    return result
+print("remove_vowel")
+print("teeth ->", remove_vowels("teeth"))
+print("bananna ->", remove_vowels("bananna"))
+print("sky ->", remove_vowels("sky"))
+
+####
+
+def to_camel_case(string):
+    result=""
+    for letter in string.title():
+        if letter==" ":
+            pass
+        else:
+            result=result+letter
+    return result
+print("to_camel_case")
+print("final test today ->", to_camel_case("final test today"))
+
+####
+
+def to_snake_case(string):
+    result=""
+    for item in string:
+        if item==" ":
+            result= result+item.replace(" ","_")
+        else:
+            result=result+item
+    return result
+print("to_snake_case")
+print("final test today ->", to_snake_case("final test today"))
+
+####
+
+def without_duplicates(numbers):
+    result=[]
+    previousNumber=numbers[0]
+    for number in numbers:
+        if number==previousNumber:
+            previousNumber=number
+            pass
+        else:
+            result.append(number)
+    return result
+print("without_duplicates")
+print("[1,2,5,5,7] ->", without_duplicates([1,2,5,5,7]))
+
