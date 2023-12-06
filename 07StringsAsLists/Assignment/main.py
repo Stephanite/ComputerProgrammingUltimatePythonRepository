@@ -63,3 +63,13 @@ def in_alphabetical_order(word):
 print("in_alphabetical_order")
 print("abcdefg ->", in_alphabetical_order("abcdefg"))
 print("gjfjnvfdn ->", in_alphabetical_order("gjfjnvfdn"))
+
+####
+
+def alternate_case(word):
+    result=""
+    for letter in word:
+        if letter==
+    return 
+print("alternate_case")
+print("computer ->", alternate_case("computer"))
