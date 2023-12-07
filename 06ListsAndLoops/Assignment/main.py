@@ -146,9 +146,9 @@ def is_incrementing(integers):
     for integer in integers:
         if integer==lastItem+1:
             lastItem=integer
-            return True
         else:
             return False
+    return True
 print("is_incrementing")
 print("[1,2,3] ->",is_incrementing([1,2,3]))
 print("[6,8,10] ->",is_incrementing([6,8,10]))
