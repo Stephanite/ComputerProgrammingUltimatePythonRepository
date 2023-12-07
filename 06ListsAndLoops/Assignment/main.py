@@ -126,10 +126,12 @@ print("[4,4,4] ->", all_the_same([4,4,4]))
 ####
 
 def increasing(integers):
-    lastItem=integers[0]
+    previousItem=integers[0]-1
     for integer in integers:
-        if integer>=lastItem:
-            lastItem=integer
+        if integer>previousItem:
+            previousItem=integer
+        elif integer==previousItem:
+            return False
         else:
             return False
     return True
@@ -139,7 +141,7 @@ print("[4,2,3] ->", increasing([4,2,3]))
 
 ####
 
-def its_incrementing(integers):
+def is_incrementing(integers):
     lastItem=0
     for integer in integers:
         if integer==lastItem+1:
@@ -147,9 +149,9 @@ def its_incrementing(integers):
             return True
         else:
             return False
-print("its_incrementing")
-print("[1,2,3] ->",its_incrementing([1,2,3]))
-print("[6,8,0] ->",its_incrementing([6,8,0]))
+print("is_incrementing")
+print("[1,2,3] ->",is_incrementing([1,2,3]))
+print("[6,8,0] ->",is_incrementing([6,8,0]))
 
 ####
 
@@ -170,14 +172,14 @@ print("[3,4,5,7] ->", has_adjacent_repeat([3,4,5,7]))
 
 ####
 
-def sum_with_skips(integers):
-    total=0
-    for integer in integers:
-        if integer==-1:
-            return 
+def sum_with_skips(numbers):
+    sum=0
+    for number in numbers:
+        if number==-1:
+            return sum
         else:
-            total=total+integer
-    return total
+            sum=sum+number
+    return sum
 print("sum_with_skips")
-print("[3,4,4,6,-1] ->",sum_with_skips([3,4,4,6,-1]))
+print("[3,-1,4,4,6,-1] ->",sum_with_skips([3,4,4,6,-1]))
 print("[1,1,1] ->", sum_with_skips([1,1,1]))
