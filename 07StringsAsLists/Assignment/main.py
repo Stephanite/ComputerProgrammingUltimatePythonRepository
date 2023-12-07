@@ -100,11 +100,14 @@ print("")
 
 def to_camel_case(string):
     result=""
+    nextUpper=True
     for letter in string:
         if letter==" ":
-            pass
+            nextUpper=True
+        elif nextUpper==True:
+            result=result+letter.upper()
+            nextUpper=False
         else:
-            letter=letter.upper()
             result=result+letter
     return result
 print("to_camel_case")
