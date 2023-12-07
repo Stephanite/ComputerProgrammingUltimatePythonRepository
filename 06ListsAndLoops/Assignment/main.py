@@ -151,7 +151,7 @@ def is_incrementing(integers):
             return False
 print("is_incrementing")
 print("[1,2,3] ->",is_incrementing([1,2,3]))
-print("[6,8,0] ->",is_incrementing([6,8,0]))
+print("[6,8,10] ->",is_incrementing([6,8,10]))
 
 ####
 
@@ -174,12 +174,15 @@ print("[3,4,5,7] ->", has_adjacent_repeat([3,4,5,7]))
 
 def sum_with_skips(numbers):
     sum=0
+    ignore=False
     for number in numbers:
-        if number==-1:
-            return sum
-        else:
+        if ignore == False and number==-1:
+            ignore=True
+        elif ignore==True and number==-1:
+            ignore=False
+        elif ignore==False:
             sum=sum+number
     return sum
 print("sum_with_skips")
-print("[3,-1,4,4,6,-1] ->",sum_with_skips([3,4,4,6,-1]))
+print("[3,-1,4,4,6,-1,4] ->",sum_with_skips([3,-1,4,4,6,-1,4]))
 print("[1,1,1] ->", sum_with_skips([1,1,1]))
