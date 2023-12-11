@@ -67,16 +67,21 @@ print("hangman")
 word=input("enter word: ")
 letter=0
 answer=""
-tries=6
-while letter :
-    print("nope")
-    letter=input()
+badGuess=6
+gameOver=True
+while len(word)!=len(answer):
+    print("guess letter")
+    letter=str(input())
     if letter in word:
-        word.append(letter)
-        answer.append(letter)
-        print(answer)
+        answer=answer+letter
+        print(letter, "is in word")
     else:
-        tries=tries-1
+        badGuess=badGuess-1
         print(letter," is not in word")
-if letter in word and len(word)==1:
-    print(answer)
+if len(word)==len(answer) and badGuess>0:
+    print("winner!")
+    print(word, " is right!")
+elif len(word)==len(answer) and badGuess==0:
+    print("game over")
+    print(word," was the answer")
+   
