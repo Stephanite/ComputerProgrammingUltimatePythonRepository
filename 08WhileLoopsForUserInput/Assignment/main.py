@@ -2,8 +2,7 @@ import random
 
 
 print("number_guesser")
-#secretNumber=random.randint(1,10)
-secretNumber=1
+secretNumber=random.randint(1,10)
 response=-1
 while response!=secretNumber:
     print("guess the secret number")
@@ -19,12 +18,12 @@ if response==secretNumber:
 print("")
 
 print("number_guesser_with_lives")
-#secretNumber=random.randint(1,10)
-secretNumber=1
+secretNumber=random.randint(1,10)
 response=-1
 lives=3
 while response!=secretNumber:
     print("guess the secret number")
+    print("lives left: ",lives)
     response=int(input())
     lives=lives-1
     if response>secretNumber:
@@ -64,13 +63,13 @@ if amountDue==0:
 print("")
 
 print("hangman")
-word=input("enter word: ")
+word=input(" player 1 enter word: ")
 letter=0
 answer=""
 badGuess=6
 gameOver=True
 while len(word)!=len(answer):
-    print("guess letter")
+    print("player 2 guess letter")
     letter=str(input())
     if letter in word:
         answer=answer+letter
