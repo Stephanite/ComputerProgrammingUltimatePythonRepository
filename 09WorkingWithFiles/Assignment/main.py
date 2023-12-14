@@ -184,6 +184,7 @@ fastestGrowthPercent=0
 fastestShrinkingCity=""
 fastestShrinkingPercent=0
 for city in cities:
+    city["growth_from_2000_to_2013"]=int(city["growth_from_2000_to_2013"].replace("%",""))
     if city["growth_from_2000_to_2013"]>fastestGrowthPercent:
         fastestGrowthPercent=city["growth_from_2000_to_2013"]
         fastestGrowthCity=city["city"]
