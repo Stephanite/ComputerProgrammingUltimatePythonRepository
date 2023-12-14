@@ -1,5 +1,7 @@
 import csv
 import os
+import json
+
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 f=open("../data/4000-most-common-english-words.csv", "r")
 words=f.read().split("\n")
@@ -22,6 +24,7 @@ def word_with_most_vowels(wordlist):
             mostVowelsWord=word
     return mostVowelsWord
 print("word with most vowels: ", word_with_most_vowels(words))
+print("")
 
 ####
 
@@ -31,6 +34,7 @@ def average_word_length(wordlist):
         wordLengthCount=wordLengthCount+len(word)
     return wordLengthCount/4000
 print("average word length: ",round(average_word_length(words),0))
+print("")
 
 ####
 
@@ -43,6 +47,7 @@ def most_common_starting_letter(wordlist):
             commonLetterCount=commonLetterCount+1
 
  ####
+
 
 f = open("../data/gradebook_data.csv", "r")
 reader = csv.reader(f)
@@ -100,6 +105,7 @@ print("# of B:",countB)
 print("# of C:",countC)
 print("# of D:",countD)
 print("# of F:",countF)
+print("")
 
 freshmanAverage=freshmanGrades/freshmanCount
 print("average freshman percent:",round(freshmanAverage,2))
@@ -110,6 +116,94 @@ print("average junior percent:",round(juniorAverage,2))
 seniorAverage=seniorGrades/seniorCount
 print("average senior percent:",round(seniorAverage,2))
 
+print("")
 print("failing seniors:",failingSeniors)
-
 f.close()
+
+print("")
+
+####
+
+f = open("../data/1000-largest-us-cities.json", "r")
+cities = json.load(f)
+f.close()
+
+print("Cities in Kansas: ")
+for city in cities:
+    if city["state"]=="Kansas":
+        print(city["city"])
+
+####
+print("")
+
+longestNameCity=""
+for city in cities:
+    if len(city["city"])>len(longestNameCity):
+        
+        longestNameCity=city["city"]
+print("city w/ longest name:",longestNameCity)
+
+####
+print("")
+
+farthestNorth=""
+biggestLatitude=cities[0]["latitude"]
+
+farthestEast=""
+biggestLongitude=cities[0]["longitude"]
+
+farthestSouth=""
+smallestLatitude=cities[0]["latitude"]
+
+farthestWest=""
+smallestLongitude=cities[0]["longitude"]
+
+for city in cities:
+    if city["latitude"]>biggestLatitude:
+        biggestLatitude=city["latitude"]
+        farthestNorth=city["city"]
+    elif city["latitude"]<smallestLatitude:
+        smallestLatitude=city["latitude"]
+        farthestSouth=city["city"]
+    if city["longitude"]>biggestLongitude:
+        biggestLongitude=city["longitude"]
+        farthestEast=city["city"]
+    elif city["longitude"]<smallestLongitude:
+        smallestLongitude=city["longitude"]
+        farthestWest=city["city"]
+print("farthest north city:",farthestNorth)
+print("farthest east city:",farthestEast)
+print("farthest south city:",farthestSouth)
+print("farthest west city:",farthestWest)
+print("")
+
+####
+
+fastestGrowthCity=""
+fastestGrowthPercent=0
+fastestShrinkingCity=""
+fastestShrinkingPercent=0
+for city in cities:
+    if city["growth_from_2000_to_2013"]>fastestGrowthPercent:
+        fastestGrowthPercent=city["growth_from_2000_to_2013"]
+        fastestGrowthCity=city["city"]
+    elif city["growth_from_2000_to_2013"]<fastestShrinkingPercent:
+        fastestShrinkingPercent=city["growth_from_2000_to_2013"]
+        fastestShrinkingCity=city["city"]
+print("city w/ fastest growth:", fastestGrowthCity)
+print("city w/ fastest shrinking:", fastestShrinkingCity)
+print("")
+
+####
+
+highestPopulation=0
+mostPopulatedCity=""
+for city in cities:
+    if int(city["population"])>highestPopulation:
+        highestPopulation=int(city["population"])
+        mostPopulatedCity=city["city"]
+print("most populated city:", mostPopulatedCity)
+print("")
+
+####
+
