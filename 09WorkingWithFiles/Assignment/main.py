@@ -15,12 +15,12 @@ def word_with_most_vowels(wordlist):
     vowels="aeiou"
     mostVowelsWord=""
     for word in wordlist:
+        vowelCount=0
         for letter in word:
             if letter in vowels:
                 vowelCount=vowelCount+1
-            else:
-                pass
         if vowelCount>mostSoFar:
+            mostSoFar=vowelCount
             mostVowelsWord=word
     return mostVowelsWord
 print("word with most vowels: ", word_with_most_vowels(words))
@@ -39,15 +39,22 @@ print("")
 ####
 
 def most_common_starting_letter(wordlist):
-    mostCommonSoFar=""
-    commonLetterCount=0
+    counts=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    mostCommonSoFar=0
+    mostCommonLetter="p"
     for word in wordlist:
-        firstLetter=word[0]
-        if firstLetter==mostCommonSoFar:
-            commonLetterCount=commonLetterCount+1
+       firstletter=word[0].lower()
+       position=ord(firstletter)-ord("a")
+       counts[position]=counts[position]+1
+       if counts[position]>mostCommonSoFar:
+           mostCommonSoFar=counts[position]
+           mostCommonLetter=chr(position + ord("a"))
+    return mostCommonLetter
+
+print("most common letter:", most_common_starting_letter(words))
+print("")
 
  ####
-
 
 f = open("../data/gradebook_data.csv", "r")
 reader = csv.reader(f)
@@ -184,7 +191,11 @@ fastestGrowthPercent=0
 fastestShrinkingCity=""
 fastestShrinkingPercent=0
 for city in cities:
-    city["growth_from_2000_to_2013"]=int(city["growth_from_2000_to_2013"].replace("%",""))
+    if city["growth_from_2000_to_2013"] == "":
+        city["growth_from_2000_to_2013"] = 0
+    else:
+        city["growth_from_2000_to_2013"]=float(city["growth_from_2000_to_2013"].replace("%",""))
+    
     if city["growth_from_2000_to_2013"]>fastestGrowthPercent:
         fastestGrowthPercent=city["growth_from_2000_to_2013"]
         fastestGrowthCity=city["city"]
