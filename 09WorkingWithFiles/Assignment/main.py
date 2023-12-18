@@ -218,4 +218,79 @@ print("most populated city:", mostPopulatedCity)
 print("")
 
 ####
+f = open("../data/childDetails.json", "r")
+children = json.load(f)
+f.close()
 
+
+longestName=""
+longestNameLength=0
+shortestName="averylongnameindeed1234596689"
+shortestNameLength=99
+haveSiblings=True
+for child in children:
+    if len(child["name"])>longestNameLength:
+        longestNameLength=len(child["name"])
+        longestName=child["name"]
+    elif len(child["name"])<shortestNameLength:
+        shortestNameLength=len(child["name"])
+        shortestName=child["name"]
+    for guardian in child["guardians"]:
+        if len(guardian["name"])>longestNameLength:
+            longestNameLength=len(guardian["name"])
+            longestName=guardian["name"]
+        elif len(guardian["name"])<shortestNameLength:
+            shortestNameLength=len(guardian["name"])
+            shortestName=guardian["name"]
+    for sibling in child["siblings"]:
+        if len(sibling["name"])>longestNameLength:
+            longestNameLength=len(sibling["name"])
+            longestName=sibling["name"]
+        elif len(sibling["name"])<shortestNameLength:
+            shortestNameLength=len(sibling["name"])
+            shortestName=sibling["name"]
+print("longest name:",longestName)
+print("shortest name:",shortestName)
+print("")
+
+####
+
+highestIncome=0
+childWithHighestIncome=""
+lowestIncome=999999999
+childWithLowestIncome=""
+householdIncome=0
+for child in children:
+    for guardian in child["guardians"]:
+        householdIncome=
+
+    print(householdIncome)
+    if householdIncome>highestIncome:
+        highestIncome=householdIncome
+        childWithHighestIncome=child["name"]
+    if householdIncome<lowestIncome:
+        lowestIncome=householdIncome
+        childWithLowestIncome=child["name"]
+print("child with highest household income:",childWithHighestIncome,",",highestIncome)
+print("child with lowest household income:",childWithLowestIncome,",",lowestIncome)
+print("")
+
+####
+
+highestInheritance=0
+lowestInheritance=999999999999999
+childWithBiggestInheritance=""
+childWithSmallestInheritance=""
+siblingCount=0
+inheritance=0
+for child in children:
+    siblingCount=len(child["siblings"])+1
+    inheritance=householdIncome/siblingCount      
+    if inheritance>highestInheritance:
+        highestInheritance=inheritance
+        childWithBiggestInheritance=child["name"]
+    if inheritance<lowestInheritance:
+        lowestInheritance=inheritance
+        childWithSmallestInheritance=child["name"]
+print("child with biggest inheritance:", childWithBiggestInheritance,",", highestInheritance)
+print("child with smallest inheritance:", childWithSmallestInheritance,",",lowestInheritance)
