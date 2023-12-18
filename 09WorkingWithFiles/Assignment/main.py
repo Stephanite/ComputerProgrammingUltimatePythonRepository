@@ -262,9 +262,8 @@ childWithLowestIncome=""
 householdIncome=0
 for child in children:
     for guardian in child["guardians"]:
-        householdIncome=
+        householdIncome=guardian["salary"]
 
-    print(householdIncome)
     if householdIncome>highestIncome:
         highestIncome=householdIncome
         childWithHighestIncome=child["name"]
