@@ -262,16 +262,16 @@ childWithLowestIncome=""
 householdIncome=0
 for child in children:
     for guardian in child["guardians"]:
-        householdIncome=guardian["salary"]
-
+        householdIncome=householdIncome+guardian["salary"]
     if householdIncome>highestIncome:
         highestIncome=householdIncome
         childWithHighestIncome=child["name"]
     if householdIncome<lowestIncome:
         lowestIncome=householdIncome
         childWithLowestIncome=child["name"]
-print("child with highest household income:",childWithHighestIncome,",",highestIncome)
-print("child with lowest household income:",childWithLowestIncome,",",lowestIncome)
+    householdIncome=0
+print("child with highest household income:",childWithHighestIncome,", $",highestIncome)
+print("child with lowest household income:",childWithLowestIncome,", $",lowestIncome)
 print("")
 
 ####
@@ -283,6 +283,8 @@ childWithSmallestInheritance=""
 siblingCount=0
 inheritance=0
 for child in children:
+    for guardian in child["guardians"]:
+        householdIncome=householdIncome+guardian["salary"]
     siblingCount=len(child["siblings"])+1
     inheritance=householdIncome/siblingCount      
     if inheritance>highestInheritance:
@@ -291,5 +293,6 @@ for child in children:
     if inheritance<lowestInheritance:
         lowestInheritance=inheritance
         childWithSmallestInheritance=child["name"]
-print("child with biggest inheritance:", childWithBiggestInheritance,",", highestInheritance)
-print("child with smallest inheritance:", childWithSmallestInheritance,",",lowestInheritance)
+    householdIncome=0
+print("child with biggest inheritance:", childWithBiggestInheritance,", $", highestInheritance)
+print("child with smallest inheritance:", childWithSmallestInheritance,", $",lowestInheritance)
